@@ -15,7 +15,7 @@ openshift_enable_unsupported_configurations=True
 
 containerized=false
 openshift_deployment_type=openshift-enterprise
-openshift_release="3.10"
+openshift_release="3.10.34"
 openshift_master_default_subdomain=apps.8f1f.example.opentlc.com
 openshift_master_cluster_method=native
 openshift_master_cluster_hostname=loadbalancer1.8f1f.internal
