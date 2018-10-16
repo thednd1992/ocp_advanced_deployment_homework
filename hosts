@@ -16,10 +16,10 @@ openshift_enable_unsupported_configurations=True
 containerized=false
 openshift_deployment_type=openshift-enterprise
 openshift_release="3.9"
-openshift_master_default_subdomain=apps.e509.example.opentlc.com
+openshift_master_default_subdomain=apps.91a7.example.opentlc.com
 openshift_master_cluster_method=native
-openshift_master_cluster_hostname=loadbalancer1.e509.internal
-openshift_master_cluster_public_hostname=loadbalancer.e509.example.opentlc.com
+openshift_master_cluster_hostname=loadbalancer1.91a7.internal
+openshift_master_cluster_public_hostname=loadbalancer.91a7.example.opentlc.com
 
 #openshift_master_identity_providers=[{'name': 'ldap', 'challenge': 'true', 'login': 'true', 'kind': 'LDAPPasswordIdentityProvider','attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']}, 'bindDN': 'uid=admin,cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com', 'bindPassword': 'r3dh4t1!', 'ca': '/etc/origin/master/ipa-ca.crt','insecure': 'false', 'url': 'ldaps://ipa.shared.example.opentlc.com:636/cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com?uid?sub?(memberOf=cn=ocp-users,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com)'}]
 
@@ -145,42 +145,42 @@ nfs
 #glusterfs
 
 [lb]
-loadbalancer1.e509.internal
+loadbalancer1.91a7.internal
 
 [masters]
-master1.e509.internal
-master2.e509.internal
-master3.e509.internal
+master1.91a7.internal
+master2.91a7.internal
+master3.91a7.internal
 
 [etcd]
-master1.e509.internal
-master2.e509.internal
-master3.e509.internal
+master1.91a7.internal
+master2.91a7.internal
+master3.91a7.internal
 
 [nodes]
 ## These are the masters
-master1.e509.internal openshift_hostname=master1.e509.internal  openshift_node_labels="{'logging': 'true', 'env': 'master', 'cluster': 'e509'}"
-master2.e509.internal openshift_hostname=master2.e509.internal  openshift_node_labels="{'logging': 'true', 'env': 'master', 'cluster': 'e509'}"
-master3.e509.internal openshift_hostname=master3.e509.internal  openshift_node_labels="{'logging': 'true', 'env': 'master', 'cluster': 'e509'}"
+master1.91a7.internal openshift_hostname=master1.91a7.internal  openshift_node_labels="{'logging': 'true', 'env': 'master', 'cluster': '91a7'}"
+master2.91a7.internal openshift_hostname=master2.91a7.internal  openshift_node_labels="{'logging': 'true', 'env': 'master', 'cluster': '91a7'}"
+master3.91a7.internal openshift_hostname=master3.91a7.internal  openshift_node_labels="{'logging': 'true', 'env': 'master', 'cluster': '91a7'}"
 
 ## These are infranodes
-infranode1.e509.internal openshift_hostname=infranode1.e509.internal  openshift_node_labels="{'logging': 'true', 'env':'infra', 'cluster': 'e509'}"
-infranode2.e509.internal openshift_hostname=infranode2.e509.internal  openshift_node_labels="{'logging': 'true', 'env':'infra', 'cluster': 'e509'}"
+infranode1.91a7.internal openshift_hostname=infranode1.91a7.internal  openshift_node_labels="{'logging': 'true', 'env':'infra', 'cluster': '91a7'}"
+infranode2.91a7.internal openshift_hostname=infranode2.91a7.internal  openshift_node_labels="{'logging': 'true', 'env':'infra', 'cluster': '91a7'}"
 
 ## These are regular nodes
-node1.e509.internal openshift_hostname=node1.e509.internal  openshift_node_labels="{'logging': 'true', 'client':'alpha', 'cluster': 'e509'}"
-node2.e509.internal openshift_hostname=node2.e509.internal  openshift_node_labels="{'logging': 'true', 'client':'beta', 'cluster': 'e509'}"
-node3.e509.internal openshift_hostname=node3.e509.internal  openshift_node_labels="{'logging': 'true', 'client':'common', 'cluster': 'e509'}"
+node1.91a7.internal openshift_hostname=node1.91a7.internal  openshift_node_labels="{'logging': 'true', 'client':'alpha', 'cluster': '91a7'}"
+node2.91a7.internal openshift_hostname=node2.91a7.internal  openshift_node_labels="{'logging': 'true', 'client':'beta', 'cluster': '91a7'}"
+node3.91a7.internal openshift_hostname=node3.91a7.internal  openshift_node_labels="{'logging': 'true', 'client':'common', 'cluster': '91a7'}"
 
 ## These are CNS nodes
-# support1.e509.internal openshift_hostname=support1.e509.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'e509'}"
-# support2.e509.internal openshift_hostname=support2.e509.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'e509'}"
-# support3.e509.internal openshift_hostname=support3.e509.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'e509'}"
+# support1.91a7.internal openshift_hostname=support1.91a7.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '91a7'}"
+# support2.91a7.internal openshift_hostname=support2.91a7.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '91a7'}"
+# support3.91a7.internal openshift_hostname=support3.91a7.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '91a7'}"
 
 [nfs]
-support1.e509.internal openshift_hostname=support1.e509.internal
+support1.91a7.internal openshift_hostname=support1.91a7.internal
 
 #[glusterfs]
-# support1.e509.internal glusterfs_devices='[ "/dev/xvdd" ]'
-# support2.e509.internal glusterfs_devices='[ "/dev/xvdd" ]'
-# support3.e509.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support1.91a7.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support2.91a7.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support3.91a7.internal glusterfs_devices='[ "/dev/xvdd" ]'
