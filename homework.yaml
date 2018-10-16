@@ -90,7 +90,7 @@
   tasks:
     - name: Checkout CI/CD demo code..
       git:
-        repo: 'https://github.com/uzugic/openshift-cd-demo'
+        repo: 'https://github.com/dulecux/openshift-cd-demo'
         dest: /root/openshift-cd-demo
     - name: Permissions..
       shell: sed -i -e 's/\r$//' /root/openshift-cd-demo/scripts/provision.sh
