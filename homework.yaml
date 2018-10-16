@@ -80,7 +80,7 @@
     - name: "pull the recycler image"
       shell: docker pull registry.access.redhat.com/openshift3/ose-recycler:latest
     - name: "tag the recycler image for specific version"
-      shell: docker tag registry.access.redhat.com/openshift3/ose-recycler:latest registry.access.redhat.com/openshift3/ose-recycler:v3.9.30
+      shell: docker tag registry.access.redhat.com/openshift3/ose-recycler:latest registry.access.redhat.com/openshift3/ose-recycler:v3.10.34
   tags:
     - fixnfs
 
