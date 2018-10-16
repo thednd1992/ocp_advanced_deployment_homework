@@ -18,12 +18,22 @@
   tasks:
     - name: docker restart
       shell: systemctl restart docker
+      
+- name: Install packages and config auth
+  hosts: localhost
+  tasks:
+    - name: required packages are present
+      yum:
+        name:
+          - atomic-openshift-clients
+          - atomic-openshift
+        state: present
 
 - name: Generate Inventory Hosts File
   hosts: localhost
   tasks:
     - name: Generate Inventory script
-      script: /root/ocp_advanced_deployment_homework/scripts/generate_inventory.sh
+      script: ./scripts/generate_inventory.sh
 
 - name: Execute the openshift-ansible prerequisites
   import_playbook: /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
@@ -31,14 +41,31 @@
 - name: Execute the openshift-ansible Deployer
   import_playbook: /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
 
+# - name: Verify OpenShift Cluster
+#   hosts: masters[0]
+#   tasks:
+#     - name: copy the .kube directory from master1 to your bastion
+#       fetch: 
+#         src: "/root/.kube/config"
+#         dest: "/root/.kube/config"
+#         flat: "yes"
 - name: Verify OpenShift Cluster
   hosts: masters[0]
   tasks:
+    - name: tar .kube dir
+      archive:
+        path: /root/.kube
+        dest: /root/kube.tar.gz
     - name: copy the .kube directory from master1 to your bastion
-      fetch: 
-        src: "/root/.kube/config"
-        dest: "/root/.kube/config"
-        flat: "yes"
+      fetch:
+        src: /root/kube.tar.gz
+        dest: /root/
+        flat: yes
+- name: Untar .kube
+  hosts: localhost
+  tasks:
+    - name: untar .kube
+      shell: tar -zxvf /root/kube.tar.gz -C /root
 
 - name: Post installation configuration
   hosts: localhost
@@ -107,7 +134,7 @@
 
 
 - name: Setup project request template
-  hosts: localhost 
+  hosts: localhost
   tasks: 
     - name: Create project request template in default project
       shell: "oc create -f ./proj-temp.yml -n default || oc replace -f ./proj-temp.yml -n default"
@@ -124,9 +151,7 @@
         line: '  projectRequestTemplate: "default/project-request"'
         state: present
     - name: Restart master API service 
-      service:
-        name: atomic-openshift-master-api
-        state: restarted
+      shell: systemctl restart atomic-openshift-node
   tags:
     - fixtemplate
 
