@@ -26,7 +26,7 @@ oc create clusterquota clusterquota-$OCP_USERNAME \
 done
 
 pwd=`pwd`
-export pwd=$pwd/template/template.yml
+export pwd=$pwd/proj-temp.yml
 echo "Create template from ${pwd}"
 oc create -f $pwd
 
