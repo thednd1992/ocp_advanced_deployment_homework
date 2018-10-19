@@ -49,10 +49,10 @@ osm_cockpit_plugins=['cockpit-kubernetes']
 openshift_master_api_port=443
 openshift_master_console_port=443
 
-openshift_master_default_subdomain=apps.750d.example.opentlc.com
+openshift_master_default_subdomain=apps.GUID.example.opentlc.com
 openshift_master_cluster_method=native
-openshift_master_cluster_hostname=loadbalancer1.750d.internal
-openshift_master_cluster_public_hostname=loadbalancer1.750d.example.opentlc.com
+openshift_master_cluster_hostname=loadbalancer1.GUID.internal
+openshift_master_cluster_public_hostname=loadbalancer1.GUID.example.opentlc.com
 openshift_master_overwrite_named_certificates=True
 
 #openshift_master_identity_providers=[{'name': 'ldap', 'challenge': 'true', 'login': 'true', 'kind': 'LDAPPasswordIdentityProvider','attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']}, 'bindDN': 'uid=admin,cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com', 'bindPassword': 'r3dh4t1!', 'ca': '/etc/origin/master/ipa-ca.crt','insecure': 'false', 'url': 'ldaps://ipa.shared.example.opentlc.com:636/cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com?uid?sub?(memberOf=cn=ocp-users,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com)'}]
@@ -248,44 +248,44 @@ nfs
 #glusterfs
 
 [lb]
-loadbalancer1.750d.internal
+loadbalancer1.GUID.internal
 
 [masters]
-master1.750d.internal
-master2.750d.internal
-master3.750d.internal
+master1.GUID.internal
+master2.GUID.internal
+master3.GUID.internal
 
 [etcd]
-master1.750d.internal
-master2.750d.internal
-master3.750d.internal
+master1.GUID.internal
+master2.GUID.internal
+master3.GUID.internal
 
 [nodes]
 ## These are the masters
-master1.750d.internal openshift_node_group_name='node-config-master'
-master2.750d.internal openshift_node_group_name='node-config-master'
-master3.750d.internal openshift_node_group_name='node-config-master'
+master1.GUID.internal openshift_node_group_name='node-config-master'
+master2.GUID.internal openshift_node_group_name='node-config-master'
+master3.GUID.internal openshift_node_group_name='node-config-master'
 
 ## These are infranodes
-infranode1.750d.internal openshift_node_group_name='node-config-infra'
-infranode2.750d.internal openshift_node_group_name='node-config-infra'
+infranode1.GUID.internal openshift_node_group_name='node-config-infra'
+infranode2.GUID.internal openshift_node_group_name='node-config-infra'
 
 ## These are regular nodes
-node1.750d.internal openshift_node_group_name='node-config-compute'
-node2.750d.internal openshift_node_group_name='node-config-compute'
-node3.750d.internal openshift_node_group_name='node-config-compute'
+node1.GUID.internal openshift_node_group_name='node-config-compute'
+node2.GUID.internal openshift_node_group_name='node-config-compute'
+node3.GUID.internal openshift_node_group_name='node-config-compute'
 
 ## These are CNS nodes
-# support1.750d.internal openshift_hostname=support1.750d.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '750d'}"
-# support2.750d.internal openshift_hostname=support2.750d.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '750d'}"
-# support3.750d.internal openshift_hostname=support3.750d.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '750d'}"
+# support1.GUID.internal openshift_hostname=support1.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
+# support2.GUID.internal openshift_hostname=support2.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
+# support3.GUID.internal openshift_hostname=support3.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
 
 [nfs]
-support1.750d.internal 
+support1.GUID.internal 
 
-# openshift_hostname=support1.750d.internal
+# openshift_hostname=support1.GUID.internal
 
 #[glusterfs]
-# support1.750d.internal glusterfs_devices='[ "/dev/xvdd" ]'
-# support2.750d.internal glusterfs_devices='[ "/dev/xvdd" ]'
-# support3.750d.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support1.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support2.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support3.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'
