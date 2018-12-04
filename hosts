@@ -22,7 +22,9 @@ openshift_examples_modify_imagestreams=true
 
 containerized=false
 openshift_deployment_type=openshift-enterprise
-openshift_release="3.11.16"
+openshift_image_tag=v3.11.16
+openshift_release=3.11.16
+openshift_pkg_version=-3.11.16
 
 # Node Groups
 openshift_node_groups=[{'name': 'node-config-master', 'labels': ['node-role.kubernetes.io/master=true','runtime=docker']}, {'name': 'node-config-infra', 'labels': ['node-role.kubernetes.io/infra=true','runtime=docker']}, {'name': 'node-config-glusterfs', 'labels': ['runtime=docker']}, {'name': 'node-config-compute', 'labels': ['node-role.kubernetes.io/compute=true','runtime=docker'], 'edits': [{ 'key': 'kubeletArguments.pods-per-core','value': ['20']}]}]
@@ -67,7 +69,7 @@ osm_cluster_network_cidr=10.1.0.0/16
 openshift_portal_net=172.30.0.0/16
 
 # os_sdn_network_plugin_name='redhat/openshift-ovs-subnet'
-os_sdn_network_plugin_name='redhat/openshift-ovs-networkpolicy'
+os_sdn_network_plugin_name='redhat/openshift-ovs-multitenant'
 
 ###########################################################################
 ### OpenShift Authentication Vars
